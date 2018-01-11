@@ -1,22 +1,26 @@
-<div class="container color-dark">
-    <div class="col">
-        <p>Add a bucket list item</p>
+<div class="row color-dark">
+    <div class="col-md-6">
+        <h2>Add a bucket list item</h2>
     </div>
-    <div class="col">
-        <p>Your bucket list item ({{ itemCount }})</p>
+    <div class="col-md-6">
+        <h2>Your bucket list item ({{ itemCount }})</h2>
     </div>
 </div>
 
-<div class="container color-light" [@goals]="goals.length">
-    <div class="col">
-        <p class="sm">Use this form below to add a new bucket list goal. What do you want to do with your life?</p>
+<div class="row color-light" [@goals]="goals.length">
+    <div class="col-md-6">
         <form>
-            <input type="text" class="txt" name="item" placeholder="Life goal.." [(ngModel)]="goalText">
-            <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+            <div class="form-group">
+                <label for="lifeGoal">Use this form below to add a new bucket list goal. What do you want to do with your life?</label>
+                <input id="lifeGoal" type="text" class="form-control" name="item" placeholder="Life goal.." [(ngModel)]="goalText">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" [value]="btnText" (click)="addItem()">
+            </div>
         </form>
     </div>
-    <div class="col">
-        <p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
+    <div class="col-md-6">
+        <p class="life-container sm" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
             {{goal}}
         </p>
     </div>
